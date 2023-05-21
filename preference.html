@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khear App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito">
+    <link href="./index.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="preference-div">
+        <h3>CHOOSE YOUR PREFERENCE</h3>
+        <a href="transcribe.html" style="color: black; text-decoration: none;">
+        <div class="preference-image">
+            <div class="real-time">
+                <p>Real time</p>
+            </div></a><br/>
+            <div class="upload-audio" id="div" onclick="uploadAudio()">
+                <p>Upload Audio</p>
+                <input type="file" accept=".m4a" onchange="poster();" id="audio-file-input" style="display: none;"/>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script>
+        function uploadAudio(){
+            var upload = document.getElementById("audio-file-input");
+            upload.click();
+            upload.focus();
+        }
+    </script>
+    <script type="text/javascript" src="./transcribe.js"></script>
+</body>
+<script src="/app.js" type="module"></script>
+<script type="module">
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    if(!user) {
+    window.location = 'login.html'; //If User is not logged in, redirect to login page
+    }
+    console.log(user);
+    });
+
+    function signout(){
+        try{
+            signOut(auth).
+            then(function(){
+                window.location.replace("/login.html");
+            })
+            ;
+            console.log("success");
+        }
+        catch(e){
+            console.log("Something went wrong "+ e)
+        }
+    }
+
+    document.getElementById("div").addEventListener(onclick, function(){
+        console.log("yes");
+        signout();
+    });
+
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito">
+    <link href="./index.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/8e1f79fea3.js"></script>
+</head>
+<body>
+    <div class="timer" style="text-align: center; color: red; font-weight: bold; padding-top: 3%;display: none;">
+        00:00:00
+    </div>
+    <div class="icon trash" style="text-align:right; padding-right: 8%; display: none;">
+        <i class="fa fa-trash" aria-hidden="true" onclick="location.reload();" style="text-align: right"></i>
+    </div>
+    <div class="text container-fluid" contenteditable="true" style="padding:6% 3% 3%;">
+        <p id="audio-text">
+            
+        </p>
+        <h4 id="info" contenteditable="false">Tap the mic to start/stop recording.</h4>
+    </div>
+    <div class="icon container-fluid" style="padding-top: 5%;">
+        <i class="fa fa-microphone fa-lg" aria-hidden="true" onclick="color();timer();runSpeechRecognition()"></i>
+        <div class="transcribed-btn">
+            <a href="./save.html" onclick="createFile();"><button class="save-text"><h4>Save Text</h4></button></a>
+            <a href=""><button class="done"><h4> &nbsp;&nbsp;Done&nbsp;&nbsp;</h4></button></a>
+        </div>
+    </div>
+    <script>
+        [hours,mins,secs]=[00,00,00];
+        stop = false;
+        function color(){
+            var color = document.getElementsByClassName("fa-microphone")[0].style.color;
+            var icon = document.getElementsByTagName("i")[1];
+            document.getElementById("info").style.display="none";
+            if(color=="red"){
+                document.getElementsByClassName("transcribed-btn")[0].style.display="block";
+                document.getElementsByClassName("trash")[0].style.display="block";
+                icon.style.display="none";
+                stop = true;
+                return 0;
+            }
+            
+            icon.style.color="red";
+            var timer = document.getElementsByClassName("timer")[0];
+            timer.style.display = "block";
+            
+        }
+        function timer(){
+            setInterval(function(){
+                if(stop){
+                return 0;
+                 }
+                secs++;
+                if(secs>59){
+                    mins++;
+                    secs=0;
+                }
+                if(mins>59){
+                    hours++;
+                    mins=0;
+                }
+                let h = hours<10?"0"+hours:hours;
+                let m = mins<10?"0"+mins:mins;
+                let s = secs<10?"0"+secs:secs;
+
+                document.getElementsByClassName("timer")[0].innerHTML = h+":"+m+":"+s;
+            }, 1000);
+        }
+        function runSpeechRecognition() {
+		        var output = document.getElementById("audio-text");
+                var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+                var recognition = new SpeechRecognition();
+				recognition.interimResults = true;
+                recognition.continuous = true;
+                recognition.onstart = function() {
+                    console.log("hey");
+                };
+                var mic = document.getElementsByClassName("fa-microphone")[0];
+                recognition.onresult = function(event) {
+                    var transcript = event.results[0][0].transcript;
+                    var confidence = event.results[0][0].confidence;
+                    output.innerHTML = transcript;
+                };
+                var icon = document.getElementsByTagName("i")[1];
+                var iconDisplay = icon.style.display;
+                if(iconDisplay!="none"){
+                    recognition.start();
+                }
+                // if(iconDisplay=="none"){
+                //     recognition.stop();
+                // }
+
+                 
+                
+                 
+	        }
+
+    </script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

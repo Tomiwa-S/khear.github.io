@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khear App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito">
+    <link href="./index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="save-div">
+        <h3>Save Text As File</h3>
+        <p>Save transcribed text to your device and access it anytime.</p>
+        <div class="save-title" style="background-color: rgb(219, 202, 186);text-align: left; margin: 5% 0 ; padding:1.5% 1%;" onclick="cool()">
+            Title       
+        </div>
+        <div>
+            <button style="width: 100%; color: white;background-color: black;font-weight: 3rem;" onclick="downloadFile()">Save</button>
+        </div>
+    </div>
+    <script>
+        function cool(){
+            var x = document.getElementsByClassName("save-title")[0];
+            x.innerHTML="";
+            x.setAttribute("contenteditable",true);        
+            x.focus();
+        }
+    </script>
+    <script type="text/javascript" src="./index.js"></script>
+</body>
+</html>

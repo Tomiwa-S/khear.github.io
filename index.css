@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #FFFEF7;
+    font-family: "Nunito";
+    overflow-x: hidden;
+}
+.main{
+    margin-top: 1%;
+    text-align: center;
+}
+.home-pic{
+    display: block;
+    height: 65dvh;
+    width: auto;
+    margin: auto;
+    padding-top: 4%;
+}
+.home-text{
+    margin-top: 3%;
+}
+hr.home{
+    border: 5px solid rgba(72, 78, 22, 0.57);
+    border-radius: 2.5px;
+    width: 8%;
+    margin: auto;
+}
+button{
+    background-color: #000000;
+    color: #ffffff;
+    width:auto;
+    margin-top: 1%;
+    padding: 1% 2%;
+    margin-bottom: 1%;
+
+}
+.login-div{
+    text-align: center;
+    width:70%;
+    margin: 10% auto;
+    
+}
+.login-form input{
+    margin: 4% auto;
+    border-radius: 0;
+}
+.login-form button{
+    width: 50%;
+    border-radius: 0;
+    margin-bottom: 2%;
+}
+form h4{
+    margin-bottom: 3%;
+}
+.in {
+    text-decoration: underline;
+}
+.in:hover {
+    cursor: pointer;
+}
+.login{
+    width:70%;
+    text-align: center;
+    margin: auto;
+}
+.black-box{
+    position: absolute;
+    border:2px black solid;
+    width: 24dvh;
+    height:24dvh;
+    border-radius: 50%;
+    background-color: #000;
+}
+.top{
+    top:-9%;
+    left: -6%;
+}
+.bottom{
+    bottom: -9%;
+    right: -6%;
+}
+.image{
+    width: 100%;
+    height: 39dvh;
+    background-image: url("./assets/6313895.jpg");
+    margin:5% 0;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+.access-div{
+    padding-top: 5%;
+    width: 100%;
+    height: 100%;
+
+}
+.access-text p{
+    margin: 3% 0;
+    padding: 4% 4% 1% 4%;
+    font-size: 1.2rem;
+}
+
+.access-btn{
+    display: inline-block;
+    margin-bottom: 3%;
+}
+a .access{
+    display: block;
+    margin: auto 0;
+    width: 100%;
+    text-decoration: none;  
+    font-weight: bold; 
+}
+.deny{
+    color:#000;
+    background-color: rgba(1,1,1,0);
+    border: 2px burlywood solid;
+    
+}
+.access-btn a{
+    text-decoration: none;
+}
+.fa-trash{
+    position: absolute;
+    margin: 5% 4% 0 0;
+    top:1%;
+    display: none;
+}
+.transcribed-btn{
+    display: none;
+}
+.save-text{
+    position: relative;
+    right:-30%;
+}
+.done{
+    position: relative;
+    left:-33%;
+    color:#000;
+    background-color: rgba(1,1,1,0);
+    border: 2px burlywood solid;
+    font-weight: bold;
+}
+
+@media screen and (max-width:800px) {
+    .login-div{
+        margin: 35% auto;
+    }
+    .image{
+        height: 30dvh;
+        margin:10% 0;
+        background-size:contain;
+    }
+    .access-text p{
+        margin: 5% 0;
+        padding: 6% 9% 1% 9%;
+
+    }   
+    .save-div h3{
+        margin: 45% auto auto auto;
+    }
+    .home-pic{
+        width: 80%;
+    }
+    .top{
+        left: -40%;
+    }
+}
+.preference-div{
+    margin:9% auto;
+    padding: auto;
+    width:40%;
+    text-align: center;
+
+}
+.preference-image div{
+
+    width: 25dvh;
+    height: 25dvh;
+    margin:4% 0;
+    display: inline-block;
+    border: 1px black solid;
+}
+.real-time{
+    background-image: url("./assets/8608664.jpg");
+    background-size: contain;
+}
+.upload-audio{
+    background-image: url("./assets/4574.jpg");
+    background-size: contain;
+}
+.preference-image div p{
+    position: relative;
+    margin-top: 85%;
+    font-weight: bold;
+}
+.text{
+    border: 0.2px solid black;
+    border-radius: 3%;
+    height: 50dvh;
+    width: 65%;
+    margin: 5% auto;
+    background-color: #f7ffff;
+    box-shadow: 5px 7px 12px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 5px 7px 12px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 12px 1px rgba(0,0,0,0.75);
+}
+.text h4{
+    text-align: center;
+    margin-top:25%;
+}
+.icon{
+    text-align: center;
+}
+.icon i{
+    transform: scale(2);
+}
+.save-div{
+    width:65%;
+    margin: 12% auto;
+    text-align: center;
+}
+@media screen and (max-width:1500px) {
+    .access-btn{
+        width:45%
+    }
+    .access-div{
+        padding-top: 10%;
+    }
+}
+
